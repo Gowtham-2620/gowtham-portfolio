@@ -20,6 +20,45 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
+.list-darkmode-menu{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hamburger{
+    position: relative;
+    width: 30px;
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: var(--accent-glow);
+    scale: 0.9;
+    display: none;
+
+    .bar,
+    &::after,
+    &::before{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: var(--dark-bg);
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    &.active::before{
+        transform: rotate(-45deg) translate(-8px, 5px);
+    }
+     &.active::after{
+        transform: rotate(45deg) translate(-8px, -5px);
+    }
+
+    &.active .bar{
+        opacity: 0;
+    }
+}
 
 /* Navbar */
 .navbar {
@@ -235,7 +274,8 @@ footer {
     transform: translateY(-3px);
 }
 /* Responsive */
-@media (max-width: 768px) {
+
+@media screen and (max-width: 768px) {
     .hero {
         flex-direction: column;
         text-align: center;
@@ -250,7 +290,7 @@ footer {
         height: 200px;
     }
     .nav-menu {
-        display: none;
+        display: flex;
     }
     .logo{
         font-size: 1.5rem;
@@ -258,3 +298,71 @@ footer {
     }
     
 }
+@media screen and (max-width: 992px){
+    nav{
+        .list-darkmode-menu{
+            ul{
+                position: fixed;
+                top: 89px;
+                left: -100%;
+                max-width: 60%;
+                width: 50%;
+                height: 100vh;
+                background: rgb(16, 15, 15);
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-direction: column;
+                padding: 30px 50px;
+                gap: 30px;
+                transition: 0.3s ease;
+
+                li{
+                    a{
+                        font-size: 22px;
+                    }
+                }
+                &.active{
+                    left: 0%;
+                }
+            }
+            .hamburger{
+                display: block;
+            }
+        }
+    }
+}
+@media screen and (max-width: 552px){
+   nav{
+        .list-darkmode-menu{
+            ul{
+                position: fixed;
+                top: 89px;
+                left: -100%;
+                max-width: 60%;
+                width: 50%;
+                height: 100vh;
+                background: rgb(12, 11, 11);
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-direction: column;
+                padding: 30px 50px;
+                gap: 30px;
+                transition: 0.3s ease;
+
+                li{
+                    a{
+                        font-size: 22px;
+                    }
+                }
+                &.active{
+                    left: 0%;
+                }
+            }
+            .hamburger{
+                display: block;
+            }
+        }
+    }
+}
+
+
