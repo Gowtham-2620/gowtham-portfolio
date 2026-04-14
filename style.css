@@ -275,7 +275,7 @@ footer {
 }
 /* Responsive */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 720px) {
     .hero {
         flex-direction: column;
         text-align: center;
@@ -295,6 +295,37 @@ footer {
     .logo{
         font-size: 1.5rem;
         padding-left: 2rem;
+    }
+     nav{
+        .list-darkmode-menu{
+            ul{
+                position: fixed;
+                top: 89px;
+                left: -100%;
+                max-width: 60%;
+                width: 50%;
+                height: 100vh;
+                background: rgb(16, 15, 15);
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-direction: column;
+                padding: 30px 50px;
+                gap: 30px;
+                transition: 0.3s ease;
+
+                li{
+                    a{
+                        font-size: 22px;
+                    }
+                }
+                &.active{
+                    left: 0%;
+                }
+            }
+            .hamburger{
+                display: block;
+            }
+        }
     }
     
 }
